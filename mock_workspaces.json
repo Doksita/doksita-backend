@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "judul": "test",
+    "no_berkas": "0123",
+    "catatan": "test",
+    "ukuran_kertas": "A4",
+    "orientasi": "Portrait",
+    "created_at": "2026-04-14T11:16:33.897Z",
+    "updated_at": "2026-04-14T11:17:13.914Z",
+    "photos": [
+      {
+        "id": 1776165393897,
+        "workspace_id": "1",
+        "foto_path": "/uploads/1776165433882-455647378.png",
+        "keterangan": "",
+        "arah": "Kiri",
+        "pos_y": 50,
+        "urutan": 0
+      },
+      {
+        "id": 1776165393898,
+        "workspace_id": "1",
+        "foto_path": "/uploads/1776165433890-712734271.jpg",
+        "keterangan": "",
+        "arah": "Kiri",
+        "pos_y": 50,
+        "urutan": 1
+      },
+      {
+        "id": 1776165393899,
+        "workspace_id": "1",
+        "foto_path": "/uploads/1776165433896-932538530.jpg",
+        "keterangan": "",
+        "arah": "Kiri",
+        "pos_y": 50,
+        "urutan": 2
+      },
+      {
+        "id": 1776165393900,
+        "workspace_id": "1",
+        "foto_path": "/uploads/1776165433903-617297980.jpg",
+        "keterangan": "",
+        "arah": "Kiri",
+        "pos_y": 50,
+        "urutan": 3
+      }
+    ]
+  }
+]
