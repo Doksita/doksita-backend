@@ -368,9 +368,9 @@ exports.update = async (req, res) => {
       "UPDATE workspaces SET judul = ?, no_berkas = ?, catatan = ?, keterangan_atas = ?, ukuran_kertas = ?, orientasi = ? WHERE id = ? AND user_id = ?",
       [
         judul,
-        Nama_Pemohon || null, 
-        Nomor_Alas_Hak || null,
-        Lokasi || null,
+        Nama_Pemohon, 
+        Nomor_Alas_Hak,
+        Lokasi,
         no_berkas || null,
         catatan || null,
         keterangan_atas || null,
