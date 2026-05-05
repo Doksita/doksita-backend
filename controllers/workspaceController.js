@@ -115,7 +115,7 @@ exports.create = async (req, res) => {
     await conn.beginTransaction();
 
     const [result] = await conn.query(
-      "INSERT INTO workspaces (user_id, judul, Nama_Pemohon, Nomor_Alas_Hak, Lokasi, no_berkas, catatan, keterangan_atas, ukuran_kertas, orientasi) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO workspaces (user_id, judul, Nama_Pemohon, Nomor_Alas_Hak, Lokasi, no_berkas, catatan, keterangan_atas, ukuran_kertas, orientasi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [
         userId,
         judul,
@@ -365,7 +365,7 @@ exports.update = async (req, res) => {
     await conn.beginTransaction();
 
     await conn.query(
-      "UPDATE workspaces SET judul = ?, no_berkas = ?, catatan = ?, keterangan_atas = ?, ukuran_kertas = ?, orientasi = ? WHERE id = ? AND user_id = ?",
+      "UPDATE workspaces SET judul = ?, Nama_Pemohon = ?, Nomor_Alas_Hak = ?, Lokasi = ?, no_berkas = ?, catatan = ?, keterangan_atas = ?, ukuran_kertas = ?, orientasi = ? WHERE id = ? AND user_id = ?",
       [
         judul,
         Nama_Pemohon, 
