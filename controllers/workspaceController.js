@@ -41,6 +41,9 @@ function deleteLocalFile(urlPath) {
 exports.create = async (req, res) => {
   const {
     judul,
+    Nama_Pemohon,
+    Nomor_Alas_Hak,
+    Lokasi,
     no_berkas,
     catatan,
     keterangan_atas,
@@ -87,6 +90,9 @@ exports.create = async (req, res) => {
       id: newId,
       user_id: userId,
       judul,
+      Nama_Pemohon,
+      Nomor_Alas_Hak,
+      Lokasi,
       no_berkas,
       catatan,
       ukuran_kertas,
@@ -109,10 +115,13 @@ exports.create = async (req, res) => {
     await conn.beginTransaction();
 
     const [result] = await conn.query(
-      "INSERT INTO workspaces (user_id, judul, no_berkas, catatan, keterangan_atas, ukuran_kertas, orientasi) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO workspaces (user_id, judul, Nama_Pemohon, Nomor_Alas_Hak, Lokasi, no_berkas, catatan, keterangan_atas, ukuran_kertas, orientasi) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [
         userId,
         judul,
+        Nama_Pemohon || null, 
+        Nomor_Alas_Hak || null,
+        Lokasi || null,
         no_berkas || null,
         catatan || null,
         keterangan_atas || null,
@@ -165,7 +174,7 @@ exports.create = async (req, res) => {
 exports.getAll = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT id, judul, no_berkas, catatan, keterangan_atas, ukuran_kertas, orientasi, created_at, updated_at FROM workspaces WHERE user_id = ? ORDER BY updated_at DESC",
+      "SELECT id, judul, Nama_Pemohon, Nomor_Alas_Hak, Lokasi, no_berkas, catatan, keterangan_atas, ukuran_kertas, orientasi, created_at, updated_at FROM workspaces WHERE user_id = ? ORDER BY updated_at DESC",
       [req.user.id],
     );
     res.json(rows);
@@ -177,6 +186,9 @@ exports.getAll = async (req, res) => {
           {
             id: 1,
             judul: "Sampel Dokumentasi Tanah 1",
+            Nama_Pemohon: "Wahyu",
+            Nomor_Alas_Hak: "01/dt/III/2026",
+            Lokasi: "Jalan Pekalongan",
             no_berkas: "123/2026",
             catatan: "Ini adalah data dummy untuk mode pengembangan.",
             ukuran_kertas: "A4",
@@ -212,6 +224,9 @@ exports.getById = async (req, res) => {
           return res.json({
             id: 1,
             judul: "Sampel Dokumentasi Tanah 1",
+            Nama_Pemohon: "Wahyu",
+            Nomor_Alas_Hak: "01/dt/III/2026",
+            Lokasi: "Jalan Pekalongan",
             no_berkas: "123/2026",
             catatan: "Ini adalah data dummy untuk mode pengembangan.",
             ukuran_kertas: "A4",
@@ -240,6 +255,9 @@ exports.getById = async (req, res) => {
         return res.json({
           id: 1,
           judul: "Sampel Dokumentasi Tanah 1",
+           Nama_Pemohon: "Wahyu",
+          Nomor_Alas_Hak: "01/dt/III/2026",
+          Lokasi: "Jalan Pekalongan",
           no_berkas: "123/2026",
           catatan: "Ini adalah data dummy untuk mode pengembangan.",
           ukuran_kertas: "A4",
@@ -257,6 +275,9 @@ exports.getById = async (req, res) => {
 exports.update = async (req, res) => {
   const {
     judul,
+    Nama_Pemohon,
+    Nomor_Alas_Hak,
+    Lokasi,
     no_berkas,
     catatan,
     keterangan_atas,
@@ -316,6 +337,9 @@ exports.update = async (req, res) => {
     mockData[index] = {
       ...mockData[index],
       judul,
+      Nama_Pemohon,
+      Nomor_Alas_Hak,
+      Lokasi,
       no_berkas,
       catatan,
       ukuran_kertas,
@@ -344,6 +368,9 @@ exports.update = async (req, res) => {
       "UPDATE workspaces SET judul = ?, no_berkas = ?, catatan = ?, keterangan_atas = ?, ukuran_kertas = ?, orientasi = ? WHERE id = ? AND user_id = ?",
       [
         judul,
+        Nama_Pemohon || null, 
+        Nomor_Alas_Hak || null,
+        Lokasi || null,
         no_berkas || null,
         catatan || null,
         keterangan_atas || null,
